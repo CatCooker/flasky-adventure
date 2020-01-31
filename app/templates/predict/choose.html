@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>垃圾检测</title>
+  <link rel="stylesheet" href="../../static/css/choose.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+{% for message in get_flashed_messages() %}
+    <div class="alert-warning" style="font-size:23px;color:black">
+        {{ message }}
+    </div>
+    {% endfor %}
+<div class="btn">
+  <div class="btn-back">
+    <p>开始检测</p>
+    <form  method="post">
+    <button class="no" type="submit" value="TRUE" name="open_camera" >打开相机</button>
+    </form>
+    <form method="POST" enctype="multipart/form-data">
+    <input  type="file"style="text-indent:-9999px " name="file">
+    <button class="yes" type="submit" name="open_camera" value="FALSE">文件上传</button>
+  </form>
+  </div>
+  <div class="btn-front">检测</div>
+</div>
+<p class="description"> <a href="{{url_for('auth.logout')}}" >退出账号</a></p>
+<!-- partial -->
+  <script  src="../../static/js/choose.js"></script>
+
+</body>
+</html>

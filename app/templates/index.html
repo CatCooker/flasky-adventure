@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>地球家园</title>
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="..\static\css\index.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+{% if current_user.is_authenticated %}
+<a href="{{ url_for('pred.cam_or_file') }}">
+  <div>
+    <h2>
+      <p style="color:white">
+          能交上你这个朋友真是太棒啦！
+      </p>
+    </h2>
+  </div>
+  {% else %}
+<a href="{{ url_for('auth.login') }}">
+  <div>
+    <h2>
+      <p style="color:white">
+        嘿，和我做朋友吧 点我一下就行啦！
+      </p>
+    </h2>
+  </div>
+  {% endif %}
+<div class="earth">
+  <div class="mapWrapper">
+  <img src="http://codemenatalie.com/wp-content/uploads/2019/09/worldMapSimplified.svg"/>
+</div>
+  <div class="faceWrapper">
+    <div class="eye left">
+      <div class="whiteLeft"></div>
+      <div class="whiteRight"></div>
+    </div>
+    <div class="eye right">
+      <div class="whiteLeft"></div>
+      <div class="whiteRight"></div>
+    </div>
+    <div class="blush left"></div>
+    <div class="blush right"></div>
+    <div class="mouth">
+      <div class="tongue"></div>
+    </div>
+  </div>
+  <div class="earthShadow"></div>
+</div>
+</a>
+<div class="stars"></div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+</body>
+</html>
