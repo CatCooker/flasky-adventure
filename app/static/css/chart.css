@@ -1,0 +1,72 @@
+.div{margin:0;border:0;padding:0;}
+.img{
+    width:50%;
+	height:50%;
+}
+.ChartBar{
+    width:50%;
+	height:50px;
+	line-height:50px;
+}
+
+.chartBars .bars {
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+}
+.chartBars .bars li {
+  display: inline-block;
+  -webkit-box-flex: 0;
+          flex: 0 1 24%;
+  position: relative;
+  font-size: 16px;
+}
+.chartBarsWrap.chartBarsHorizontal .bars b {
+  color: black;
+  top: 1em;
+  text-align: right;
+}
+.chartBarsWrap.chartBarsHorizontal .chartBars .bars .bar {
+  width: 0;
+  height: 50% !important;
+  text-align: right;
+  font-size: 1.5em;
+  -webkit-transition: 2s width cubic-bezier(0.6, 0.4, 0.4, 1.1);
+  transition: 2s width cubic-bezier(0.6, 0.4, 0.4, 1.1);
+}
+.chartBarsWrap.chartBarsHorizontal .chartBars .bars .bar:after {
+  font-size: 0.6em !important;
+}
+.bars li .bar.greenBar {
+  background-color: #6B8E23;
+  background: radial-gradient(#99cb32, #6B8E23);
+}
+.bars li .bar.greenBarFlat {
+  background-color: #6B8E23;
+}
+.bars li .bar.blueBar {
+  background-color: #49E;
+  background: radial-gradient(#8abff4, #49E);
+}
+.bars li .bar.blueBarFlat {
+  background-color: #49E;
+}
+.bars li .bar.orangeBar {
+  background-color: orange;
+  background: radial-gradient(#ffc04d, #FFA500);
+}
+.bars li .bar.orangeBarFlat {
+  background-color: orange;
+}
+.bars li .bar.purpleBar {
+  background-color: #6e46af;
+  background: radial-gradient(#9778c9, #6e46af);
+}
+.bars li .bar.purpleBarFlat {
+  background-color: #6e46af;
+}
+@media screen and (min-width: 600px) {
+  .bar:before {
+    font-size: 2em !important;
+  }
+}

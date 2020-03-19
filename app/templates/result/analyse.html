@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="never">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+ <link rel="stylesheet" href="{{ url_for('static',filename='css/bar.css')}}">
+    <title>Title</title>
+</head>
+<body bgcolor="white">
+<p>hello</p>
+<!--&lt;!&ndash; partial:index.partial.html &ndash;&gt;-->
+<!--<h1>Animated Graphs</h1>-->
+<!--<h2>Scroll Triggered, Responsive, Data-driven</h2>-->
+<!--<p>&nbsp;</p>-->
+
+<!--<div class="chartBarsWrap">-->
+<!--    <div class="chartBars chartBars1">-->
+<!--        <ul class="numbers">-->
+<!--            <li><span>100%</span></li>-->
+<!--            <li><span>80%</span></li>-->
+<!--            <li><span>60%</span></li>-->
+<!--            <li><span>40%</span></li>-->
+<!--            <li><span>20%</span></li>-->
+<!--            <li><span>0%</span></li>-->
+<!--        </ul>-->
+<!--        <ul class="bars">-->
+<!--            <li>-->
+<!--                <span class="tooltip">-->
+<!--                <span class="tooltipContent">Very important info that you should read!</span>-->
+<!--                <div data-percentage="52" class="bar greenBar trigger"></div>-->
+<!--                </span>-->
+<!--                <b>Alpha</b>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <span class="tooltip">-->
+<!--                <span class="tooltipContent">This one is trending well.</span>-->
+<!--                <div data-percentage="83" class="bar blueBar trigger"></div>-->
+<!--                </span>-->
+<!--                <b>Beta</b>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <span class="tooltip">-->
+<!--                <span class="tooltipContent">I like cheese!</span>-->
+<!--                <div data-percentage="94" class="bar orangeBar trigger"></div>-->
+<!--                </span>-->
+<!--                <b>Gamma</b>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <span class="tooltip">-->
+<!--                <span class="tooltipContent">Monkey's are funny!</span>-->
+<!--                <div data-percentage="64" class="bar purpleBar trigger"></div>-->
+<!--                </span>-->
+<!--                <b>Delta</b>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<p>Bacon ipsum do lor amet porchetta jowl jerky short loin, tri-tip flank c ow. Strip steak meat ball picanha t-bone pork loin filet mignon, pancetta jerky kielba sa sirloin ball t ip hamburger turkey pork belly ham hock. Chicken swine tail s pa re ribs,pork loin tongue picanha strip steak ribeye pancetta bresaola landjaeger flank ham shank. Picanha t-bone meatball, corned beef tail tri-tip flank capicola alcatra spare ribs. Flank tail pork loin pork belly sirloin tri-tip.</p>-->
+
+<!--<h3>Responsive? Yep.</h3>-->
+
+<!--<div class="chartBarsWrap">-->
+<!--    <div class="chartBars chartBars2">-->
+<!--        <ul class="numbers">-->
+<!--            <li><span>100%</span></li>-->
+<!--            <li><span>80%</span></li>-->
+<!--            <li><span>60%</span></li>-->
+<!--            <li><span>40%</span></li>-->
+<!--            <li><span>20%</span></li>-->
+<!--            <li><span>0%</span></li>-->
+<!--        </ul>-->
+<!--        <ul class="bars">-->
+<!--            <li>-->
+<!--                <div data-percentage="92" class="bar greenBar trigger"></div><b>Alpha</b></li><li>-->
+<!--    <div data-percentage="33" class="bar orangeBar trigger"></div><b>Beta</b></li>-->
+<!--<li>-->
+<!--    <div data-percentage="64" class="bar blueBar trigger"></div><b>Gamma</b></li>-->
+<!--<li>-->
+<!--    <div data-percentage="44" class="bar purpleBar trigger"></div>-->
+<!--    <b>Delta</b></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<p>Bacon ipsum do lor amet porchetta jowl jerky short loin, tri-tip flank c ow. Strip steak meat ball picanha t-bone pork loin filet mignon, pancetta jerky kielba sa sirloin ball t ip hamburger turkey pork belly ham hock. Chicken swine tail s pa re ribs, pork loin tongue picanha strip steak ribeye pancetta bresaola landjaeger flank ham shank. Picanha t-bone meatball, corned beef tail tri-tip flank capicola alcatra spare ribs. Flank tail pork loin pork belly sirloin tri-tip. Bresaola salmi.</p>-->
+
+<!--<h3>Radial Graphs</h3>-->
+
+<!--<div class="box-piesite">-->
+<!--    <ul>-->
+<!--        <li class="design">-->
+<!--            <div class="piesite" id="pie_0" data-pie="82"></div>-->
+<!--        </li>-->
+<!--        <li class="usability">-->
+<!--            <div class="piesite" id="pie_2" data-pie="55"></div>-->
+<!--        </li>-->
+<!--        <li class="creativity">-->
+<!--            <div class="piesite" id="pie_1" data-pie="33"></div>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<!--<p>Bacon ipsum do lor amet porchetta jowl jerky short loin, tri-tip flank c ow. Strip steak meat ball picanha t-bone pork loin filet mignon, pancetta jerky kielba sa sirloin ball t ip hamburger turkey pork belly ham hock. Chicken swine tail s pa re ribs,pork loin tongue picanha strip steak ribeye pancetta bresaola landjaeger flank ham shank. Picanha t-bone meatball, corned beef tail tri-tip flank capicola alcatra spare ribs. Flank tail pork loin pork belly sirloin tri-tip..</p>-->
+<!--&lt;!&ndash; <p>&nbsp;</p>  &ndash;&gt;-->
+
+<!--<h3>Horizontal</h3>-->
+
+<!--<div class="chartBarsWrap chartBarsHorizontal">-->
+<!--    <div class="chartBars">-->
+<!--        <ul class="bars">-->
+<!--            <li>-->
+<!--                <div data-percentage="92" class="bar greenBarFlat"></div><b>Alpha</b></li>-->
+<!--            <li>-->
+<!--                <div data-percentage="33" class="bar orangeBarFlat"></div><b>Beta</b></li>-->
+<!--            <li>-->
+<!--                <div data-percentage="64" class="bar blueBarFlat"></div><b>Gamma</b></li>-->
+<!--            <li>-->
+<!--                <div data-percentage="44" class="bar purpleBarFlat"></div><b>Delta</b></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--<p>Bacon ipsum do lor amet porchetta jowl jerky short loin, tri-tip flank c ow. Strip steak meat ball picanha t-bone pork loin filet mignon, pancetta jerky kielba sa sirloin ball t ip hamburger turkey pork belly ham hock. Chicken swine tail s pa re ribs,pork loin tongue picanha strip steak ribeye pancetta bresaola landjaeger flank ham shank.</p>-->
+
+<!--<h3>Just add more bars, they sqeeze in. Sweet!</h3>-->
+
+<!--<div class="chartBarsWrap">-->
+<!--    <div class="chartBars chartBars3">-->
+<!--        <ul class="numbers">-->
+<!--            <li><span>100%</span></li>-->
+<!--            <li><span>80%</span></li>-->
+<!--            <li><span>60%</span></li>-->
+<!--            <li><span>40%</span></li>-->
+<!--            <li><span>20%</span></li>-->
+<!--            <li><span>0%</span></li>-->
+<!--        </ul>-->
+<!--        <ul class="bars">-->
+<!--            <li><div data-percentage="92" class="bar greenBar trigger"></div><b>Alpha</b></li>-->
+<!--            <li><div data-percentage="33" class="bar blueBar trigger"></div><b>Beta</b></li>-->
+<!--            <li><div data-percentage="64" class="bar orangeBar trigger"></div><b>Gamma</b></li>-->
+<!--            <li><div data-percentage="41" class="bar purpleBar trigger"></div><b>Delta</b></li>-->
+<!--            <li><div data-percentage="52" class="bar greenBar trigger"></div><b>Epsilon</b></li>-->
+<!--            <li><div data-percentage="58" class="bar blueBar trigger"></div><b>Zeta</b></li>-->
+<!--            <li><div data-percentage="65" class="bar orangeBar trigger"></div><b>Eta</b></li>-->
+<!--            <li><div data-percentage="91" class="bar purpleBar trigger"></div><b>Theta</b></li>-->
+<!--            <li><div data-percentage="32" class="bar greenBar trigger"></div><b>Iota</b></li>-->
+<!--            <li><div data-percentage="68" class="bar blueBar trigger"></div><b>Kappa</b></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<p>Bacon ipsum do lor amet porchetta jowl jerky short loin, tri-tip flank c ow. Strip steak meat ball picanha t-bone pork loin filet mignon, pancetta jerky kielba sa sirloin ball t ip hamburger turkey pork belly ham hock. Chicken swine tail s pa re ribs,pork loin tongue picanha strip steak ribeye pancetta bresaola landjaeger flank ham shank.</p>-->
+<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
+<!--<script  src="{{ url_for('static',filename='js/chart.js')}}"></script>-->
+</body>
+</html>
