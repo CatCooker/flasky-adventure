@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>鉴定结果</title>
+  <!--<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>-->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/result.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+	{% if open_camera != False %}
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/video.css')}}">
+	{% endif %}
+</head>
+<body>
+<!-- partial:index.partial.html -->
+{% for message in get_flashed_messages() %}
+    <div class="alert-warning" style="font-size:20px;color:black" align="center">
+        {{ message }}
+    </div>
+    {% endfor %}
+<div class="our-service-sass hide-pr show-pr">
+				<div class="container">
+					<div class="theme-title-one text-center">
+            <div align="center">
+              <h3>垃圾种类：{{ garbage_type }}</h3>
+            </div>
+
+					</div> <!-- /.theme-title-one -->
+					<div class="wrapper" style="margin-bottom:10px;">
+					<div class="img" style="height:20px;width:200px;float:left;margin-right:20px">
+						{% if open_camera == False  %}
+					<img src="{{ img_dir }}" alt="垃圾窗口" height="200" width="200" align=center>
+						<h3 align="center">{{ garbage }}</h3>
+						 <div class="acc">
+              <h4>准确度：
+                <p class="accuracy">
+                </p>%
+            </h4>
+          </div>
+						{% else %}
+						<video autoplay playsinline height="210" width="210" id="video"></video>
+						<canvas id="photo" height="5" width="5"></canvas>
+						<form action="{{ url_for('result.capture_photo') }}" id = "form2" method="post" style="margin-top:0px">
+						<button id = "snap" class="btn btn-primary" style="margin-left:75px" onclick="downloadImg();" type="submit" value="True" name="captured" >拍照</button>
+						</form>
+						{% endif %}
+
+
+          </div>
+					<div class="chartBarsWrap chartBarsHorizontal">
+    <div class="chartBars">
+        <ul class="bars">
+			{% if 0 == max_index %}
+            <li id="{{max_index}}">
+				{% else %}
+				<li id="garbagetype1">
+			{% endif %}
+                <div data-percentage="{{acc_arr[0]}}" class="bar greenBarFlat"></div><b style="color:black">{{ labels[0] }}</b></li>
+            {% if 1 == max_index %}
+            <li id="{{ max_index }}">
+				{% else %}
+				<li id="garbagetype2">
+			{% endif %}
+                <div data-percentage="{{acc_arr[1]}}" class="bar orangeBarFlat"></div><b style="color:black">{{ labels[1] }}</b></li>
+           {% if 2 == max_index %}
+            <li id="{{ max_index }}">
+				{% else %}
+				<li id="garbagetype3">
+			{% endif %}
+                <div data-percentage="{{acc_arr[2]}}" class="bar blueBarFlat"></div><b style="color:black">{{ labels[2] }}</b></li>
+           {% if 3 == max_index %}
+            <li id="{{ max_index }}">
+				{% else %}
+				<li id="garbagetype4">
+			{% endif %}
+                <div data-percentage="{{acc_arr[3]}}" class="bar purpleBarFlat"></div><b style="color:black">{{ labels[3] }}</b></li>
+        </ul>
+    </div>
+</div>
+					</div>
+
+					<div class="inner-wrapper">
+						<div class="row" style="margin-top:10px">
+							<div class="col-lg-4 single-block aos-init aos-animate" data-aos="fade-up">
+								<div class="service-block">
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<div class="hover-content"></div>
+									<i class="flaticon-web icon-s"></i>
+									<h3 class="title">详情信息</h3>
+									<p>{{ describe }}</p>
+									<a href="#" class="detail-button"><i class="icon-img"><img src="{{url_for('static',filename=typephoto) }}" width="100%"></i></a>
+								</div> <!-- /.service-block -->
+							</div> <!-- /.single-block -->
+							<div class="col-lg-4 single-block aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+								<div class="service-block">
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<div class="hover-content"></div>
+									<i class="flaticon-value icon-s"></i>
+									<h3 class="title">处理手段</h3>
+
+									<p>{{ deal }}</p>
+									<a href="#" class="detail-button"><i class="icon-img"><img src="https://image.flaticon.com/icons/svg/1467/1467472.svg" width="100%"></i></a>
+								</div> <!-- /.service-block -->
+							</div> <!-- /.single-block -->
+							<div class="col-lg-4 single-block aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+								<div class="service-block">
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<span class="snow-dot"></span>
+									<div class="hover-content"></div>
+									<i class="flaticon-login icon-s"></i>
+									<h3 class="title">预防措施</h3>
+									<p>{{ prevent }}</p>
+									<a href="#" class="detail-button"><i class="icon-img">
+                    <img src="https://image.flaticon.com/icons/svg/1467/1467468.svg" width="100%">
+                    </i></a>
+								</div> <!-- /.service-block -->
+							</div> <!-- /.single-block -->
+						</div> <!-- /.row -->
+					</div> <!-- /.inner-wrapper -->
+				</div> <!-- /.container -->
+        <a href="{{ url_for('pred.cam_or_file') }}">
+        <button type="button" name="button" class="btn btn-primary" id="btn1" style="margin-left:650px">
+			{% if not open_camera %}
+			继续检测
+			{% else %}
+			图片检测
+			{% endif %}
+		</button>
+        </a>
+        <div class="btn-group">
+        	<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">纠正结果
+        		<span class="caret"></span>
+        	</button>
+        	<ul class="dropdown-menu" role="menu">
+        		<li><a href="{{ url_for('result.addrecycle',fname=filename) }}">可回收垃圾</a></li>
+            <li><a href="{{ url_for('result.addkitchen',filename=filename) }}">厨余垃圾</a></li>
+        		<li><a href="{{ url_for('result.addharmful',filename=filename) }}">有害垃圾</a></li>
+            <li><a href="{{ url_for('result.addother',filename=filename) }}">其他垃圾</a></li>
+        	</ul>
+        </div>
+<!--	    <a href="{{ url_for('result.analyse',filename=filename) }}">-->
+<!--         <button type="button" name="button" class="btn btn-success" id="btn4">结果分析</button>-->
+<!--        </a>-->
+        <a href="{{ url_for('main.index') }}">
+         <button type="button" name="button" class="btn btn-danger" id="btn3">返回主页</button>
+        </a>
+
+			</div>
+
+<!-- partial -->
+  <script type="module" src="{{ url_for('static',filename='js/result.js')}}"></script>
+  <script src="{{ url_for('static',filename='js/anime.js')}}" charset="utf-8"></script>
+  <script src="{{ url_for('static',filename='js/script.js')}}" charset="utf-8"></script>
+{% if open_camera != False %}
+  <script src="{{ url_for('static',filename='js/video.js')}}"></script>
+{% endif %}
+<!--<script src="{{ url_for('static',filename='js/snap.js')}}"></script>-->
+<script type="text/javascript">
+{% if max_index != -1%}
+	var obj = document.getElementById("{{max_index}}");
+	obj.setAttribute("style", "border:solid 2px red;border-bottom-width:2px;");
+	{% endif %}
+</script>
+<script>
+function downLoad(url) {
+  var oA = document.createElement("a");
+
+  oA.download = "capture_photo";
+  oA.href = url;
+  document.body.appendChild(oA);
+  oA.click();
+
+  // 下载之后把创建的元素删除
+  oA.remove();
+   console.log('save!');
+}
+
+  function downloadImg() {
+  var photo = document.getElementById('photo');
+  var photoContext = photo.getContext('2d');
+  var video = document.getElementById('video');
+  photo.width = 320;
+  photo.height = 320;
+  photoContext.drawImage(video, 0, 0, photo.width , photo.height );
+  var canvas = document.querySelector("canvas");
+  var dataURL = canvas.toDataURL("image/png");
+  downLoad(dataURL);
+  photo.width = 20;
+  photo.height = 20;
+  document.getElementById("form2").submit();
+  console.log("commit");
+  console.log(dataURL);
+};
+</script>
+  <script type="text/javascript">
+  var roundLogEl = document.querySelector('.accuracy');
+
+  anime({
+    targets: roundLogEl,
+    innerHTML: [0, {{ acc }}],
+    easing: 'linear',
+    round: 10 // Will round the animated value to 1 decimal
+  });
+
+  </script>
+
+</body>
+</html>
