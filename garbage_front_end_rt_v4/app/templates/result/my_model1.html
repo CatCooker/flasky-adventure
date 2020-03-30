@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="never">
+    <title>Title</title>
+</head>
+<body bgcolor="white">
+<p>当前模型：{{ model_name }} 训练轮数：{{ epoch}}
+    特征提取or微调：
+{% if feature_extract == 1 %}
+特征提取
+{% else %}
+微调
+{% endif %}
+    学习率：{{ lr }}
+    交叉验证折数：{{ k }}
+</p>
+<p>Top-5 Error: 14.3%</p>
+<p>Top-1 Error:13.3%</p>
+<p>热图 acc_loss</p>
+<p>预测最不准确图片</p>
+<p>预测最准确的图片</p>
+
+
+</body>
+</html>
